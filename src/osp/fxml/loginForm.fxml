@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SampleController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.LoginFormController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="500.0" text="OSP Assist">
          <padding>
@@ -39,7 +40,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField prefHeight="600.0" GridPane.columnIndex="1">
+            <TextField fx:id="tfLogin" prefHeight="600.0" GridPane.columnIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
@@ -55,14 +56,14 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField prefHeight="600.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="pfPassword" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="24.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-            </TextField>
+            </PasswordField>
          </children>
          <VBox.margin>
             <Insets top="10.0" />
@@ -70,7 +71,7 @@
       </GridPane>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnLogin" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Zaloguj się">
+            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginClicked" prefHeight="400.0" prefWidth="400.0" text="Zaloguj się">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
