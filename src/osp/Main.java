@@ -7,19 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/loginForm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/membersForm.fxml"));
         primaryStage.setTitle("OSP Assist");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
-
         //primaryStage.initStyle(StageStyle.UNDECORATED);
-        Main.primaryStage=primaryStage;
-        Main.primaryStage.show();
-        //primaryStage.show();
+        primaryStage.show();
     }
 
 

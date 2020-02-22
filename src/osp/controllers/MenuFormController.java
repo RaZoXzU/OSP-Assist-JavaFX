@@ -8,4 +8,7 @@ public class MenuFormController {
         Platform.exit();
     }
 
+    public void onMemberClicked(){
+
+    }
 }
