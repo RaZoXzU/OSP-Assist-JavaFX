@@ -18,8 +18,6 @@ public class MembersFormController {
         Node[] nodes = new Node[10];
         for (int i = 0; i < nodes.length; i++) {
             try {
-
-                final int j = i;
                 nodes[i] = FXMLLoader.load(getClass().getResource("/osp/fxml/items/memberRowItem.fxml"));
                 listMembers.getChildren().add(nodes[i]);
                 System.out.println();

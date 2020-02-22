@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/membersForm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/memberAddForm.fxml"));
         primaryStage.setTitle("OSP Assist");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
