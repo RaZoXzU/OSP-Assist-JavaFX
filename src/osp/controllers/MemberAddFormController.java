@@ -1,10 +1,10 @@
 package osp.controllers;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MemberAddFormController {
 
@@ -60,7 +60,31 @@ public class MemberAddFormController {
         System.out.println("Płeć: "+cbSex.toString());
         System.out.println("JOT: "+chckbJOT.getText());
         System.out.println("Członek: "+chckbMember.getText());
-        
+
+    }
+    public void initialize(){
+        List<String> rankList = new ArrayList<>();
+        rankList.add("Strażak");
+        rankList.add("Starszy strażak");
+        rankList.add("Dowódca roty");
+        rankList.add("Pomocnik dowódcy sekcji");
+        rankList.add("Dowódca sekcji");
+        rankList.add("Pomocnik dowódcy plutonu");
+        rankList.add("Dowódca plutonu");
+
+        List<String> functionList = new ArrayList<>();
+        functionList.add("Członek zarządu");
+        functionList.add("Zastępca naczelnika");
+        functionList.add("Naczelnik");
+        functionList.add("Wiceprezes");
+        functionList.add("Prezes");
+        functionList.add("Członek komisji rewizyjnej");
+        functionList.add("Przewodniczący komisji rewizyjnej");
+
+        cbSex.getItems().addAll(new String("Mężczyzna"), new String("Kobieta"));
+        cbFunction.getItems().addAll(functionList);
+        cbRank.getItems().addAll(rankList);
+
     }
 
 }

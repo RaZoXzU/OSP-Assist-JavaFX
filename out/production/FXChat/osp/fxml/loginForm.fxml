@@ -10,18 +10,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.LoginFormController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.LoginFormController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="500.0" text="OSP Assist">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="500.0" text="OSP Assist" VBox.vgrow="ALWAYS" />
       <GridPane hgap="5.0" prefHeight="100.0" prefWidth="200.0" vgap="5.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
@@ -32,42 +24,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="600.0" text="Login : ">
+            <Label prefHeight="50.0" text="Login : " GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <TextField fx:id="tfLogin" prefHeight="50.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+            <Label prefHeight="50.0" text="Hasło : " GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <font>
-                  <Font size="24.0" />
-               </font>
             </Label>
-            <TextField fx:id="tfLogin" prefHeight="600.0" GridPane.columnIndex="1">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <Label prefHeight="600.0" text="Hasło : " GridPane.rowIndex="1">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="pfPassword" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="24.0" />
-               </font>
+            <PasswordField fx:id="pfPassword" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </PasswordField>
          </children>
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
       </GridPane>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
