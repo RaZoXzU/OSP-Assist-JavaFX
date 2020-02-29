@@ -12,6 +12,5 @@ public class LoginFormController {
 
     @FXML
     public void onLoginClicked(){
-
     }
 }
