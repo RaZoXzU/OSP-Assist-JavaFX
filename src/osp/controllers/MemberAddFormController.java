@@ -43,26 +43,27 @@ public class MemberAddFormController {
     @FXML
     CheckBox chckbMember;
 
-    public void onSaveMemberClicked(){
-        System.out.println("Imie: "+tfName.getText());
-        System.out.println("Nazwisko: "+tfSurname.getText());
-        System.out.println("Imię ojca: "+tfDadName.getText());
-        System.out.println("Miejscowość: "+tfCity.getText());
-        System.out.println("Numer domu: "+tfHouseNumber.getText());
-        System.out.println("PESEL: "+tfPESEL.getText());
-        System.out.println("Data urodzenia: "+dpBirthDate.getValue());
-        System.out.println("Miejsce urodzenia: "+tfBirthCity.getText());
-        System.out.println("Dokument: "+tfDocumentNumber.getText());
-        System.out.println("Telefon: "+tfPhone.getText());
-        System.out.println("Data wstąpienia: "+dpJoinDate.getValue());
-        System.out.println("Funkcja: "+cbFunction.toString());
-        System.out.println("Stopień: "+cbRank.toString());
-        System.out.println("Płeć: "+cbSex.toString());
-        System.out.println("JOT: "+chckbJOT.getText());
-        System.out.println("Członek: "+chckbMember.getText());
+    public void onSaveMemberClicked() {
+        System.out.println("Imie: " + tfName.getText());
+        System.out.println("Nazwisko: " + tfSurname.getText());
+        System.out.println("Imię ojca: " + tfDadName.getText());
+        System.out.println("Miejscowość: " + tfCity.getText());
+        System.out.println("Numer domu: " + tfHouseNumber.getText());
+        System.out.println("PESEL: " + tfPESEL.getText());
+        System.out.println("Data urodzenia: " + dpBirthDate.getValue());
+        System.out.println("Miejsce urodzenia: " + tfBirthCity.getText());
+        System.out.println("Dokument: " + tfDocumentNumber.getText());
+        System.out.println("Telefon: " + tfPhone.getText());
+        System.out.println("Data wstąpienia: " + dpJoinDate.getValue());
+        System.out.println("Funkcja: " + cbFunction.toString());
+        System.out.println("Stopień: " + cbRank.toString());
+        System.out.println("Płeć: " + cbSex.toString());
+        System.out.println("JOT: " + chckbJOT.getText());
+        System.out.println("Członek: " + chckbMember.getText());
 
     }
-    public void initialize(){
+
+    public void initialize() {
         List<String> rankList = new ArrayList<>();
         rankList.add("Strażak");
         rankList.add("Starszy strażak");

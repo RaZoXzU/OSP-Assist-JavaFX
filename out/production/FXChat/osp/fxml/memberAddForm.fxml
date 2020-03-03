@@ -89,7 +89,7 @@
                   <ComboBox fx:id="cbSex" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                </children>
             </GridPane>
-            <Separator orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" />
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" />
             <HBox alignment="CENTER" prefHeight="200.0" prefWidth="800.0" spacing="15.0">
                <children>
                   <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#onSaveMemberClicked" prefHeight="600.0" prefWidth="800.0" text="Dodaj członka">
@@ -97,6 +97,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Separator opacity="0.0" HBox.hgrow="ALWAYS" />
                   <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="600.0" prefWidth="800.0" text="Anuluj">
                      <font>
                         <Font size="18.0" />

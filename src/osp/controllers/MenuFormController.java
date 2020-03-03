@@ -12,8 +12,9 @@ public class MenuFormController {
     private MainFormController mainFormController;
 
     @FXML
-    public void onCloseClicked(){
+    public void onCloseClicked() {
         Platform.exit();
+        System.exit(0);
     }
 
     @FXML

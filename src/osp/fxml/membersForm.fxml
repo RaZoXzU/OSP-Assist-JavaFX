@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.MembersFormController">
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.MembersFormController">
    <children>
       <Label text="Członkowie" VBox.vgrow="ALWAYS" />
       <HBox VBox.vgrow="ALWAYS">
@@ -32,14 +32,17 @@
             </CheckBox>
          </children>
       </HBox>
-      <TableView VBox.vgrow="ALWAYS">
+      <TableView fx:id="tableViewMembers" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="75.0" text="Imię" />
-          <TableColumn prefWidth="75.0" text="Nazwisko" />
-            <TableColumn prefWidth="75.0" text="Miejscowość" />
-            <TableColumn prefWidth="75.0" text="Funkcja" />
-            <TableColumn prefWidth="75.0" text="Stopień" />
-            <TableColumn prefWidth="75.0" text="Akcja" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Imię" />
+          <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="Nazwisko" />
+            <TableColumn fx:id="cityColumn" prefWidth="75.0" text="Miejscowość" />
+            <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Telefon" visible="false" />
+            <TableColumn fx:id="functionColumn" prefWidth="75.0" text="Funkcja" />
+            <TableColumn fx:id="jotColumn" prefWidth="75.0" text="JOT" visible="false" />
+            <TableColumn fx:id="memberColumn" prefWidth="75.0" text="Członek" visible="false" />
+            <TableColumn fx:id="joinDateColumn" prefWidth="75.0" text="Data wstąpienia" visible="false" />
+            <TableColumn fx:id="actionColumn" prefWidth="75.0" text="Akcja" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -48,7 +51,7 @@
       <HBox spacing="10.0">
          <children>
             <Button fx:id="btnOptions" mnemonicParsing="false" onAction="#onOptionsClicked" prefHeight="40.0" prefWidth="150.0" text="Opcje" HBox.hgrow="ALWAYS" />
-            <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Separator opacity="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#onAddMemberClicked" prefHeight="40.0" prefWidth="150.0" text="Dodaj osobę" />
             <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="40.0" prefWidth="150.0" text="Wstecz" />
          </children>
