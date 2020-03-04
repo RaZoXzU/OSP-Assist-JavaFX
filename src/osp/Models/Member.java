@@ -1,158 +1,164 @@
 package osp.Models;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Member {
-    private Integer id, pesel, phoneNumber, isJOT, isMember, memberFunction, sex;
-    private String name, surname, fatherName, birthCity, birthday,
+    private SimpleIntegerProperty id, pesel, phoneNumber, isJOT, isMember, memberFunction, sex;
+    private SimpleStringProperty firstName, surname, fatherName, birthCity, birthday,
             city, idCard, joinDate, houseNumber;
 
-    public Member(){}
-    public Member(Integer id, String name, String surname, String fatherName,
+    public Member() {
+    }
+
+    //for test only
+    public Member(String firstName, String surname, String city, Integer phoneNumber,
+                  String joinDate, Integer isJOT, Integer isMember, Integer memberFunction) {
+        this.firstName = new SimpleStringProperty(firstName);
+        this.surname = new SimpleStringProperty(surname);
+        this.city = new SimpleStringProperty(city);
+        this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
+        this.joinDate = new SimpleStringProperty(joinDate);
+        this.isJOT = new SimpleIntegerProperty(isJOT);
+        this.isMember = new SimpleIntegerProperty(isMember);
+        this.memberFunction = new SimpleIntegerProperty(memberFunction);
+    }
+
+    public Member(Integer id, String firstName, String surname, String fatherName,
                   String birthCity, String birthday, Integer pesel,
                   String city, String houseNumber, String idCard, Integer phoneNumber,
-                  String joinDate, Integer isJOT, Integer isMember, Integer memberFunction, Integer sex){
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.fatherName = fatherName;
-        this.birthCity = birthCity;
-        this.birthday = birthday;
-        this.pesel=pesel;
-        this.city = city;
-        this.houseNumber = houseNumber;
-        this.idCard = idCard;
-        this.phoneNumber = phoneNumber;
-        this.joinDate = joinDate;
-        this.isJOT=isJOT;
-        this.isMember=isMember;
-        this.memberFunction = memberFunction;
-        this.sex = sex;
+                  String joinDate, Integer isJOT, Integer isMember, Integer memberFunction, Integer sex) {
+        this.id = new SimpleIntegerProperty(id);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.surname = new SimpleStringProperty(surname);
+        this.fatherName = new SimpleStringProperty(fatherName);
+        this.birthCity = new SimpleStringProperty(birthCity);
+        this.birthday = new SimpleStringProperty(birthday);
+        this.pesel = new SimpleIntegerProperty(pesel);
+        this.city = new SimpleStringProperty(city);
+        this.houseNumber = new SimpleStringProperty(houseNumber);
+        this.idCard = new SimpleStringProperty(idCard);
+        this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
+        this.joinDate = new SimpleStringProperty(joinDate);
+        this.isJOT = new SimpleIntegerProperty(isJOT);
+        this.isMember = new SimpleIntegerProperty(isMember);
+        this.memberFunction = new SimpleIntegerProperty(memberFunction);
+        this.sex = new SimpleIntegerProperty(sex);
     }
 
     public Integer getId() {
-        return id;
+        return id.get();
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id.set(id); }
 
     public Integer getPesel() {
-        return pesel;
+        return pesel.get();
     }
 
-    public void setPesel(Integer pesel) {
-        this.pesel = pesel;
-    }
+    public void setPesel(Integer pesel) { this.pesel.set(pesel); }
 
     public Integer getPhoneNumber() {
-        return phoneNumber;
+        return phoneNumber.get();
     }
 
     public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber.set(phoneNumber);
     }
 
     public Integer getIsJOT() {
-        return isJOT;
+        return isJOT.get();
     }
 
     public void setIsJOT(Integer isJOT) {
-        this.isJOT = isJOT;
+        this.isJOT.set(isJOT);
     }
 
     public Integer getIsMember() {
-        return isMember;
+        return isMember.get();
     }
 
     public void setIsMember(Integer isMember) {
-        this.isMember = isMember;
+        this.isMember.set(isMember);
     }
 
     public Integer getMemberFunction() {
-        return memberFunction;
+        return memberFunction.get();
     }
 
     public void setMemberFunction(Integer memberFunction) {
-        this.memberFunction = memberFunction;
+        this.memberFunction.set(memberFunction);
     }
 
     public Integer getSex() {
-        return sex;
+        return sex.get();
     }
 
     public void setSex(Integer sex) {
-        this.sex = sex;
+        this.sex.set(sex);
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName.get();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setFirstName(String firstName) { this.firstName.set(firstName); }
 
     public String getSurname() {
-        return surname;
+        return surname.get();
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.surname.set(surname);
     }
 
     public String getFatherName() {
-        return fatherName;
+        return fatherName.get();
     }
 
     public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
+        this.fatherName.set(fatherName);
     }
 
     public String getBirthCity() {
-        return birthCity;
+        return birthCity.get();
     }
 
     public void setBirthCity(String birthCity) {
-        this.birthCity = birthCity;
+        this.birthCity.set(birthCity);
     }
 
     public String getBirthday() {
-        return birthday;
+        return birthday.get();
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday;
+        this.birthday.set(birthday);
     }
 
     public String getCity() {
-        return city;
+        return city.get();
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city.set(city);}
 
     public String getIdCard() {
-        return idCard;
+        return idCard.get();
     }
 
     public void setIdCard(String idCard) {
-        this.idCard = idCard;
+        this.idCard.set(idCard);
     }
 
     public String getJoinDate() {
-        return joinDate;
+        return joinDate.get();
     }
 
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
-    }
+    public void setJoinDate(String joinDate) { this.joinDate.set(joinDate); }
 
     public String getHouseNumber() {
-        return houseNumber;
+        return houseNumber.get();
     }
 
-    public void setHouseNumber(String houseNumber) {
-        this.houseNumber = houseNumber;
-    }
+    public void setHouseNumber(String houseNumber) { this.houseNumber.set(houseNumber); }
 }

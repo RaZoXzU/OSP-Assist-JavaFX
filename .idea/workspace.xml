@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/osp/TopUserPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/osp/topUserPanel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXChat/osp/fxml/items/memberRowItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXChat/osp/fxml/mainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FXChat/osp/fxml/mainForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FXChat/osp/fxml/membersForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FXChat/osp/fxml/membersForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/controllers/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/controllers/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/controllers/MainFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/controllers/MainFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/osp/Models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/Models/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/osp/controllers/MembersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/controllers/MembersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/controllers/MenuFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/controllers/MenuFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/controllers/items/MemberRowItemController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/fxml/items/memberRowItem.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/fxml/mainForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/fxml/mainForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/osp/fxml/membersForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/osp/fxml/membersForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +92,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="public" />
@@ -224,18 +214,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1582410828378" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581968847152">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583255141572">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1581968847152" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1583255141572" />
     <state x="543" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582410786942">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="543" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1582410786942" />
-    <state x="1026" y="147" key="#com.intellij.ide.util.MemberChooser" timestamp="1582966084694">
+    <state x="1026" y="147" key="#com.intellij.ide.util.MemberChooser" timestamp="1583349520471">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1026" y="147" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582966084694" />
+    <state x="1026" y="147" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583349520471" />
+    <state x="324" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583354314874">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="324" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1583354314874" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582406901536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -248,22 +242,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582839455083" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1582968071858">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1583355596814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582968071858" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1582968071858">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583355596814" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1583355596814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582968071858" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1582968071858">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583355596814" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1583355596814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582968071858" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1582968071858">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583355596814" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1583355596814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582968071858" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583355596814" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582839894870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -284,18 +278,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582827254313" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1582954865214">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583345099382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582954865214" />
-    <state x="499" y="168" key="extract.method.dialog" timestamp="1582965408841">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583345099382" />
+    <state x="93" y="93" width="1350" height="638" key="dock-window-1" timestamp="1583172812451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="168" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1582965408841" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1582964914993">
+    <state x="93" y="93" width="1350" height="638" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1583172812451" />
+    <state x="499" y="168" key="extract.method.dialog" timestamp="1582973013868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1582964914993" />
+    <state x="499" y="168" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1582973013868" />
+    <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1583174981768">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="463" y="10" width="609" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1583174981768" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1582973888076">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1582973888076" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FXChat$Main.ic" NAME="Main Coverage Results" MODIFIED="1582358660308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
