@@ -4,10 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import osp.Models.Member;
 
 import java.io.IOException;
@@ -56,6 +61,20 @@ public class MembersFormController {
 
     @FXML
     public void onAddMemberClicked() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/memberAddForm.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addDataToTable() {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("firstName"));
         cityColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("city"));
         surnameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("surname"));

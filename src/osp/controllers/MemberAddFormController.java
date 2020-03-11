@@ -1,13 +1,15 @@
 package osp.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import osp.Models.Function;
 
 public class MemberAddFormController {
 
+    @FXML
+    Label lblTitle;
     @FXML
     Label lblInfo;
     @FXML
@@ -35,57 +37,47 @@ public class MemberAddFormController {
     @FXML
     ComboBox cbFunction;
     @FXML
-    ComboBox cbRank;
-    @FXML
     ComboBox cbSex;
     @FXML
     CheckBox chckbJOT;
     @FXML
     CheckBox chckbMember;
+    @FXML
+    Button bttnSaveMember;
 
     public void onSaveMemberClicked() {
-        System.out.println("Imie: " + tfName.getText());
-        System.out.println("Nazwisko: " + tfSurname.getText());
-        System.out.println("Imię ojca: " + tfDadName.getText());
-        System.out.println("Miejscowość: " + tfCity.getText());
-        System.out.println("Numer domu: " + tfHouseNumber.getText());
-        System.out.println("PESEL: " + tfPESEL.getText());
-        System.out.println("Data urodzenia: " + dpBirthDate.getValue());
-        System.out.println("Miejsce urodzenia: " + tfBirthCity.getText());
-        System.out.println("Dokument: " + tfDocumentNumber.getText());
-        System.out.println("Telefon: " + tfPhone.getText());
-        System.out.println("Data wstąpienia: " + dpJoinDate.getValue());
-        System.out.println("Funkcja: " + cbFunction.toString());
-        System.out.println("Stopień: " + cbRank.toString());
-        System.out.println("Płeć: " + cbSex.toString());
-        System.out.println("JOT: " + chckbJOT.getText());
-        System.out.println("Członek: " + chckbMember.getText());
-
     }
 
+private void checkFieldsIsNotEmpty(){
+        bttnSaveMember.setDisable(!(tfName.getLength()>2&&tfSurname.getLength()>2&&tfPhone.getLength()>2));
+}
     public void initialize() {
-        List<String> rankList = new ArrayList<>();
-        rankList.add("Strażak");
-        rankList.add("Starszy strażak");
-        rankList.add("Dowódca roty");
-        rankList.add("Pomocnik dowódcy sekcji");
-        rankList.add("Dowódca sekcji");
-        rankList.add("Pomocnik dowódcy plutonu");
-        rankList.add("Dowódca plutonu");
+        loadDataToComboBox();
+        chckbMember.setSelected(true);
+        checkFieldsIsNotEmpty();
+    }
 
-        List<String> functionList = new ArrayList<>();
-        functionList.add("Członek zarządu");
-        functionList.add("Zastępca naczelnika");
-        functionList.add("Naczelnik");
-        functionList.add("Wiceprezes");
-        functionList.add("Prezes");
-        functionList.add("Członek komisji rewizyjnej");
-        functionList.add("Przewodniczący komisji rewizyjnej");
+    private void loadDataToComboBox() {
+        final ObservableList<Function> functionObservableList = FXCollections.observableArrayList(
+                new Function(0,"Strażak"),
+                new Function(1,"Starszy Strażak"),
+                new Function(2,"Dowódca roty"),
+                new Function(3,"Pomocnik dowódcy sekcji"),
+                new Function(4,"Dowódca sekcji"),
+                new Function(5,"Pomocnik dowódcy plutonu"),
+                new Function(6,"Dowódca plutonu"),
+                new Function(7,"Członek komisji rewizyjnej"),
+                new Function(8,"Przewodniczący komisji rewizyjnej"),
+                new Function(9,"Członek zarządu"),
+                new Function(10,"Zastępca naczelnika"),
+                new Function(11,"Naczelnik"),
+                new Function(12,"Wiceprezes"),
+                new Function(13,"Prezes")
+                );
+        cbFunction.setItems(functionObservableList);
+        cbFunction.getSelectionModel().select(0);
 
         cbSex.getItems().addAll(new String("Mężczyzna"), new String("Kobieta"));
-        cbFunction.getItems().addAll(functionList);
-        cbRank.getItems().addAll(rankList);
-
+        cbSex.getSelectionModel().select(0);
     }
-
 }

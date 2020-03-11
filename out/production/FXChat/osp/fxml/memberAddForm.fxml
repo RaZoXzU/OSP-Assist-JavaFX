@@ -14,98 +14,80 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<Pane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.MemberAddFormController">
+<Pane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="osp.controllers.MemberAddFormController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="800.0">
+      <VBox>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
          <children>
-            <Label contentDisplay="CENTER" prefHeight="125.0" prefWidth="800.0" text="Dodaj nową osobę">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblInfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="200.0" prefWidth="800.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <GridPane hgap="15.0" prefHeight="600.0" prefWidth="800.0" vgap="15.0">
+            <Label fx:id="lblTitle" contentDisplay="CENTER" text="Dodaj nową osobę" VBox.vgrow="ALWAYS" />
+            <Label fx:id="lblInfo" alignment="CENTER" contentDisplay="CENTER" VBox.vgrow="ALWAYS" />
+            <GridPane hgap="15.0" vgap="15.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="10.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <VBox.margin>
-                  <Insets left="30.0" right="30.0" top="15.0" />
+                  <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                </VBox.margin>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Imię:" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Nazwisko:" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Imię ojca:" GridPane.rowIndex="2" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Miejsce urodzenia:" GridPane.rowIndex="7" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Data urodzenia" GridPane.rowIndex="6" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="PESEL:" GridPane.rowIndex="5" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Miejscowość:" GridPane.rowIndex="3" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Numer domu:" GridPane.rowIndex="4" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Seria i numer dowodu:" GridPane.columnIndex="2" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Numer telefonu:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Data wstąpienia:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Funkcja:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Stopień:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="JOT:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Członek:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="600.0" prefWidth="800.0" text="Płeć:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <TextField fx:id="tfName" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="tfCity" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="tfPESEL" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="tfHouseNumber" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="tfDadName" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="tfSurname" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <TextField fx:id="tfDocumentNumber" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" />
-                  <TextField fx:id="tfPhone" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <TextField fx:id="tfBirthCity" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <CheckBox fx:id="chckbMember" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="600.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                  <CheckBox fx:id="chckbJOT" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="600.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                  <DatePicker fx:id="dpBirthDate" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <DatePicker fx:id="dpJoinDate" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="cbFunction" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <ComboBox fx:id="cbRank" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                  <ComboBox fx:id="cbSex" prefHeight="30.0" prefWidth="800.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Imię:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Nazwisko:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Imię ojca:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Miejsce urodzenia:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Data urodzenia" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="PESEL:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Miejscowość:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Numer domu:" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Seria i numer dowodu:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Numer telefonu:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Data wstąpienia:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Funkcja:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Stopień:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="JOT:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Członek:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Płeć:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfName" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfSurname" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfDadName" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfCity" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfHouseNumber" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfPESEL" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+                  <DatePicker fx:id="dpBirthDate" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfBirthCity" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfDocumentNumber" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+                  <TextField fx:id="tfPhone" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+                  <DatePicker fx:id="dpJoinDate" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+                  <ComboBox fx:id="cbFunction" maxHeight="200.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" />
+                  <ComboBox fx:id="cbRank" disable="true" maxHeight="200.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS" />
+                  <ComboBox fx:id="cbSex" maxHeight="200.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+                  <CheckBox fx:id="chckbJOT" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS" />
+                  <CheckBox fx:id="chckbMember" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS" />
                </children>
             </GridPane>
-            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" />
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="800.0" spacing="15.0">
+            <Separator opacity="0.0" orientation="VERTICAL" VBox.vgrow="ALWAYS" />
+            <HBox VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#onSaveMemberClicked" prefHeight="600.0" prefWidth="800.0" text="Dodaj członka">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                   <Separator opacity="0.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="600.0" prefWidth="800.0" text="Anuluj">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
+                  <Button fx:id="bttnSaveMember" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onSaveMemberClicked" text="Zapisz" HBox.hgrow="ALWAYS" />
+                  <Separator opacity="0.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
-                  <Insets top="15.0" />
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
             </HBox>
          </children>
