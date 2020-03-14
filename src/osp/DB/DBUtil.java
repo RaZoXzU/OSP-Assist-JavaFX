@@ -1,9 +1,7 @@
 package osp.DB;
 
 import javax.sql.rowset.CachedRowSet;
-
-import com.sun.rowset.CachedRowSetImpl;
-
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
 public class DBUtil {
@@ -58,7 +56,7 @@ public class DBUtil {
             //CachedRowSet Implementation
             //In order to prevent "java.sql.SQLRecoverableException: Closed Connection: next" error
             //We are using CachedRowSet
-            cachedRowSet = new CachedRowSetImpl();
+            cachedRowSet =  RowSetProvider.newFactory().createCachedRowSet();
             cachedRowSet.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("Problem at executeQuery : " + e);
