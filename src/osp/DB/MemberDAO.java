@@ -37,7 +37,7 @@ public class MemberDAO {
             member.setFatherName(resultSet.getString("ImieOjca"));
             member.setBirthCity(resultSet.getString("MiejsceUrodzenia"));
             member.setBirthday(resultSet.getString("DataUrodzenia"));
-            member.setPesel(resultSet.getInt("PESEL"));
+            member.setPesel(resultSet.getString("PESEL"));
             member.setCity(resultSet.getString("Miejscowosc"));
             member.setHouseNumber(resultSet.getString("NrDomu"));
             member.setIdCard(resultSet.getString("Dowod"));
@@ -80,7 +80,7 @@ public class MemberDAO {
             member.setFatherName(resultSetMembers.getString("ImieOjca"));
             member.setBirthCity(resultSetMembers.getString("MiejsceUrodzenia"));
             member.setBirthday(resultSetMembers.getString("DataUrodzenia"));
-            member.setPesel(resultSetMembers.getInt("PESEL"));
+            member.setPesel(resultSetMembers.getString("PESEL"));
             member.setCity(resultSetMembers.getString("Miejscowosc"));
             member.setHouseNumber(resultSetMembers.getString("NrDomu"));
             member.setIdCard(resultSetMembers.getString("Dowod"));

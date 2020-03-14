@@ -4,11 +4,27 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Member {
-    private SimpleIntegerProperty id, pesel, phoneNumber, isJOT, isMember, memberFunction, sex;
+    private SimpleIntegerProperty id, phoneNumber, isJOT, isMember, memberFunction, sex;
     private SimpleStringProperty firstName, surname, fatherName, birthCity, birthday,
-            city, idCard, joinDate, houseNumber;
+            city, idCard, joinDate, houseNumber, pesel;
 
     public Member() {
+        this.id = new SimpleIntegerProperty();
+        this.firstName = new SimpleStringProperty();
+        this.surname = new SimpleStringProperty();
+        this.fatherName = new SimpleStringProperty();
+        this.birthCity = new SimpleStringProperty();
+        this.birthday = new SimpleStringProperty();
+        this.pesel = new SimpleStringProperty();
+        this.city = new SimpleStringProperty();
+        this.houseNumber = new SimpleStringProperty();
+        this.idCard = new SimpleStringProperty();
+        this.phoneNumber = new SimpleIntegerProperty();
+        this.joinDate = new SimpleStringProperty();
+        this.isJOT = new SimpleIntegerProperty();
+        this.isMember = new SimpleIntegerProperty();
+        this.memberFunction = new SimpleIntegerProperty();
+        this.sex = new SimpleIntegerProperty();
     }
 
     //for test only
@@ -25,7 +41,7 @@ public class Member {
     }
 
     public Member(Integer id, String firstName, String surname, String fatherName,
-                  String birthCity, String birthday, Integer pesel,
+                  String birthCity, String birthday, String pesel,
                   String city, String houseNumber, String idCard, Integer phoneNumber,
                   String joinDate, Integer isJOT, Integer isMember, Integer memberFunction, Integer sex) {
         this.id = new SimpleIntegerProperty(id);
@@ -34,7 +50,7 @@ public class Member {
         this.fatherName = new SimpleStringProperty(fatherName);
         this.birthCity = new SimpleStringProperty(birthCity);
         this.birthday = new SimpleStringProperty(birthday);
-        this.pesel = new SimpleIntegerProperty(pesel);
+        this.pesel = new SimpleStringProperty(pesel);
         this.city = new SimpleStringProperty(city);
         this.houseNumber = new SimpleStringProperty(houseNumber);
         this.idCard = new SimpleStringProperty(idCard);
@@ -52,11 +68,11 @@ public class Member {
 
     public void setId(Integer id) { this.id.set(id); }
 
-    public Integer getPesel() {
+    public String getPesel() {
         return pesel.get();
     }
 
-    public void setPesel(Integer pesel) { this.pesel.set(pesel); }
+    public void setPesel(String pesel) { this.pesel.set(pesel); }
 
     public Integer getPhoneNumber() {
         return phoneNumber.get();

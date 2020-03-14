@@ -4,65 +4,88 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import osp.DB.MemberDAO;
 import osp.Models.Member;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class MembersFormController {
 
     MainFormController mainFormController;
     @FXML
-    TableView<Member> tableViewMembers;
+    private TableView<Member> tableViewMembers;
     @FXML
-    TableColumn<Member, String> nameColumn;
+    private TableColumn<Member, String> nameColumn;
     @FXML
-    TableColumn<Member, String> cityColumn;
+    private TableColumn<Member, String> cityColumn;
     @FXML
-    TableColumn<Member, String> surnameColumn;
+    private TableColumn<Member, String> surnameColumn;
     @FXML
-    TableColumn<Member, Integer> functionColumn;
+    private TableColumn<Member, Integer> functionColumn;
     @FXML
-    TableColumn<Member, Member> actionColumn;
+    private TableColumn<Member, Member> actionColumn;
     @FXML
-    TableColumn<Member, Integer> phoneColumn;
+    private TableColumn<Member, Integer> phoneColumn;
     @FXML
-    TableColumn<Member, Integer> memberColumn;
+    private TableColumn<Member, Integer> memberColumn;
     @FXML
-    TableColumn<Member, String> joinDateColumn;
+    private TableColumn<Member, String> joinDateColumn;
     @FXML
-    TableColumn<Member, Integer> jotColumn;
+    private TableColumn<Member, Integer> jotColumn;
+    private Boolean options;
 
     @FXML
-    public void initialize() {
+    private void initialize() throws SQLException, ClassNotFoundException {
+        options = false;
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("firstName"));
+        cityColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("city"));
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("surname"));
+        functionColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("memberFunction"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("phoneNumber"));
+        joinDateColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("joinDate"));
+        memberColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("isMember"));
+        jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("isJOT"));
+
+        fillTableViewMembers();
     }
 
-    //test
-    Boolean opcje = true;
+    private void fillTableViewMembers() throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Member> membersData = MemberDAO.searchMembers();
+            populateMembers(membersData);
+        } catch (SQLException e){
+            System.out.println("Error occurred while getting employees information from DB.\n" + e);
+            throw e;
+        }
+    }
+
+    private void populateMembers(ObservableList<Member> member){
+        ObservableList<Member> membersTblView = FXCollections.observableArrayList();
+        membersTblView.setAll(member);
+        tableViewMembers.setItems(membersTblView);
+    }
 
     @FXML
     public void onOptionsClicked() {
-
-        joinDateColumn.setVisible(opcje);
-        jotColumn.setVisible(opcje);
-        phoneColumn.setVisible(opcje);
-        memberColumn.setVisible(opcje);
-
-        opcje = !opcje;
+        joinDateColumn.setVisible(options);
+        jotColumn.setVisible(options);
+        phoneColumn.setVisible(options);
+        memberColumn.setVisible(options);
+        options = !options;
     }
 
     @FXML
-    public void onAddMemberClicked() {
+    private void onAddMemberClicked() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/memberAddForm.fxml"));
-        Scene scene = null;
+        Scene scene;
         try {
             scene = new Scene(loader.load());
             Stage stage = new Stage();
@@ -74,27 +97,8 @@ public class MembersFormController {
         }
     }
 
-    private void addDataToTable() {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("firstName"));
-        cityColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("city"));
-        surnameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("surname"));
-        functionColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("memberFunction"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("phoneNumber"));
-        joinDateColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("joinDate"));
-        memberColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("isMember"));
-        jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("isJOT"));
-
-        final ObservableList<Member> data = FXCollections.observableArrayList(
-                new Member("Łukasz", "Starzewski", "Warszawa", 123456789, "2020-20-20", 1, 1, 1),
-                new Member("Adrian", "Rosłoński", "Gdańsk", 567234489, "2020-20-20", 1, 1, 1),
-                new Member("Robert", "Brzęczyszczykiewicz", "Jelenia Góra", 123456789, "2020-20-20", 1, 1, 1),
-                new Member("Jan", "Kowalski", "Babice", 345678345, "2020-20-20", 1, 1, 1)
-        );
-        tableViewMembers.getItems().addAll(data);
-    }
-
     @FXML
-    public void onBackClicked() {
+    private void onBackClicked() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/osp/fxml/menuForm.fxml"));
         Pane pane = null;
         try {
