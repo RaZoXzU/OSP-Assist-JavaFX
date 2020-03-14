@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import osp.Models.Member;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -99,8 +100,8 @@ public class MemberDAO {
 
     public static void updateMemberCity(String memberID, String city) throws SQLException, ClassNotFoundException {
         String updateStatement ="UPDATE T_MEMBERS\n" +
-                                " SET Miejscowosc = '" + city + "'\n" +
-                                " WHERE EMPLOYEE_ID = " + memberID + ";";
+                " SET Miejscowosc = '" + city + "'\n" +
+                " WHERE ID = " + memberID + ";";
         try{
             DBUtil.dbExecuteUpdate(updateStatement);
         }catch (SQLException e) {
@@ -120,23 +121,18 @@ public class MemberDAO {
         }
     }
 
-    //*************************************
-    //INSERT an employee
-    //*************************************
-    public static void insertEmp(String name, String lastname, String email) throws SQLException, ClassNotFoundException {
-        //Declare a DELETE statement
-        String updateStmt =
-                "BEGIN\n" +
-                        "INSERT INTO employees\n" +
-                        "(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, JOB_ID)\n" +
-                        "VALUES\n" +
-                        "(sequence_employee.nextval, '" + name + "', '" + lastname + "','" + email + "', SYSDATE, 'IT_PROG');\n" +
-                        "END;";
-
-        //Execute DELETE operation
+    public static void insertMember(Member member) throws ClassNotFoundException {
+        String insertStatement = "INSERT INTO T_MEMBERS VALUES (NULL,\n" +
+                "'" + member.getFirstName() + "', '" + member.getSurname() + "', '" + member.getFatherName() + "', " +
+                "'" + member.getBirthCity() + "', '" + member.getBirthday() + "', '" + member.getPesel() + "', " +
+                "'" + member.getCity() + "', '" + member.getHouseNumber() + "', '" + member.getIdCard() + "', " +
+                "'" + member.getPhoneNumber() + "', '" + member.getJoinDate() + "', '" + member.getIsJOT() + "', " +
+                "'" + member.getIsMember() + "', '" + member.getMemberFunction() + "', '" + member.getSex() + "'";
         try {
-            DBUtil.dbExecuteUpdate(updateStmt);
+            DBUtil.dbExecuteUpdate(insertStatement);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             System.out.print("Error occurred while INSERT Operation: " + e);
             throw e;
         }
