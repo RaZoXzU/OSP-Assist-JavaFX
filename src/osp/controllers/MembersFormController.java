@@ -55,6 +55,8 @@ public class MembersFormController {
         jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("isJOT"));
 
         fillTableViewMembers();
+        //sort table
+        tableViewMembers.getSortOrder().setAll(surnameColumn,nameColumn);
     }
 
     private void fillTableViewMembers() throws SQLException, ClassNotFoundException {
@@ -75,11 +77,11 @@ public class MembersFormController {
 
     @FXML
     public void onOptionsClicked() {
+        options = !options;
         joinDateColumn.setVisible(options);
         jotColumn.setVisible(options);
         phoneColumn.setVisible(options);
         memberColumn.setVisible(options);
-        options = !options;
     }
 
     @FXML

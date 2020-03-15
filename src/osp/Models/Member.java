@@ -1,12 +1,14 @@
 package osp.Models;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Member {
-    private SimpleIntegerProperty id, phoneNumber, isJOT, isMember, memberFunction, sex;
+    private SimpleIntegerProperty id, phoneNumber, memberFunction, sex;
     private SimpleStringProperty firstName, surname, fatherName, birthCity, birthday,
             city, idCard, joinDate, houseNumber, pesel;
+    private SimpleBooleanProperty isJOT, isMember;
 
     public Member() {
         this.id = new SimpleIntegerProperty();
@@ -21,29 +23,29 @@ public class Member {
         this.idCard = new SimpleStringProperty();
         this.phoneNumber = new SimpleIntegerProperty();
         this.joinDate = new SimpleStringProperty();
-        this.isJOT = new SimpleIntegerProperty();
-        this.isMember = new SimpleIntegerProperty();
+        this.isJOT = new SimpleBooleanProperty();
+        this.isMember = new SimpleBooleanProperty();
         this.memberFunction = new SimpleIntegerProperty();
         this.sex = new SimpleIntegerProperty();
     }
 
     //for test only
     public Member(String firstName, String surname, String city, Integer phoneNumber,
-                  String joinDate, Integer isJOT, Integer isMember, Integer memberFunction) {
+                  String joinDate, Boolean isJOT, Boolean isMember, Integer memberFunction) {
         this.firstName = new SimpleStringProperty(firstName);
         this.surname = new SimpleStringProperty(surname);
         this.city = new SimpleStringProperty(city);
         this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
         this.joinDate = new SimpleStringProperty(joinDate);
-        this.isJOT = new SimpleIntegerProperty(isJOT);
-        this.isMember = new SimpleIntegerProperty(isMember);
+        this.isJOT = new SimpleBooleanProperty(isJOT);
+        this.isMember = new SimpleBooleanProperty(isMember);
         this.memberFunction = new SimpleIntegerProperty(memberFunction);
     }
 
     public Member(Integer id, String firstName, String surname, String fatherName,
                   String birthCity, String birthday, String pesel,
                   String city, String houseNumber, String idCard, Integer phoneNumber,
-                  String joinDate, Integer isJOT, Integer isMember, Integer memberFunction, Integer sex) {
+                  String joinDate, Boolean isJOT, Boolean isMember, Integer memberFunction, Integer sex) {
         this.id = new SimpleIntegerProperty(id);
         this.firstName = new SimpleStringProperty(firstName);
         this.surname = new SimpleStringProperty(surname);
@@ -56,8 +58,8 @@ public class Member {
         this.idCard = new SimpleStringProperty(idCard);
         this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
         this.joinDate = new SimpleStringProperty(joinDate);
-        this.isJOT = new SimpleIntegerProperty(isJOT);
-        this.isMember = new SimpleIntegerProperty(isMember);
+        this.isJOT = new SimpleBooleanProperty(isJOT);
+        this.isMember = new SimpleBooleanProperty(isMember);
         this.memberFunction = new SimpleIntegerProperty(memberFunction);
         this.sex = new SimpleIntegerProperty(sex);
     }
@@ -82,19 +84,19 @@ public class Member {
         this.phoneNumber.set(phoneNumber);
     }
 
-    public Integer getIsJOT() {
+    public Boolean getIsJOT() {
         return isJOT.get();
     }
 
-    public void setIsJOT(Integer isJOT) {
+    public void setIsJOT(Boolean isJOT) {
         this.isJOT.set(isJOT);
     }
 
-    public Integer getIsMember() {
+    public Boolean getIsMember() {
         return isMember.get();
     }
 
-    public void setIsMember(Integer isMember) {
+    public void setIsMember(Boolean isMember) {
         this.isMember.set(isMember);
     }
 

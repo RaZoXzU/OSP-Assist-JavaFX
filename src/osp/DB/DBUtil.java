@@ -34,6 +34,7 @@ public class DBUtil {
         try {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
+                System.out.println("DB Connection closed");
             }
         } catch (Exception e) {
             throw e;

@@ -43,8 +43,8 @@ public class MemberDAO {
             member.setIdCard(resultSet.getString("Dowod"));
             member.setPhoneNumber(resultSet.getInt("Telefon"));
             member.setJoinDate(resultSet.getString("DataWstapienia"));
-            member.setIsJOT(resultSet.getInt("JOT"));
-            member.setIsMember(resultSet.getInt("Czlonek"));
+            member.setIsJOT(resultSet.getBoolean("JOT"));
+            member.setIsMember(resultSet.getBoolean("Czlonek"));
             member.setMemberFunction(resultSet.getInt("Funkcja"));
             member.setSex(resultSet.getInt("Plec"));
         }
@@ -86,8 +86,8 @@ public class MemberDAO {
             member.setIdCard(resultSetMembers.getString("Dowod"));
             member.setPhoneNumber(resultSetMembers.getInt("Telefon"));
             member.setJoinDate(resultSetMembers.getString("DataWstapienia"));
-            member.setIsJOT(resultSetMembers.getInt("JOT"));
-            member.setIsMember(resultSetMembers.getInt("Czlonek"));
+            member.setIsJOT(resultSetMembers.getBoolean("JOT"));
+            member.setIsMember(resultSetMembers.getBoolean("Czlonek"));
             member.setMemberFunction(resultSetMembers.getInt("Funkcja"));
             member.setSex(resultSetMembers.getInt("Plec"));
 
@@ -99,12 +99,12 @@ public class MemberDAO {
     //UPDATE member city
 
     public static void updateMemberCity(String memberID, String city) throws SQLException, ClassNotFoundException {
-        String updateStatement ="UPDATE T_MEMBERS\n" +
+        String updateStatement = "UPDATE T_MEMBERS\n" +
                 " SET Miejscowosc = '" + city + "'\n" +
                 " WHERE ID = " + memberID + ";";
-        try{
+        try {
             DBUtil.dbExecuteUpdate(updateStatement);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.print("Error occurred while UPDATE Operation: " + e);
             throw e;
         }
@@ -112,10 +112,10 @@ public class MemberDAO {
 
     //delete member
     public static void deleteMember(String memberID) throws SQLException, ClassNotFoundException {
-        String updateStatement ="DELETE FROM T_MEMBERS WHERE ID =" + memberID + ";";
-        try{
+        String updateStatement = "DELETE FROM T_MEMBERS WHERE ID =" + memberID + ";";
+        try {
             DBUtil.dbExecuteUpdate(updateStatement);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.print("Error occurred while Delete Operation: " + e);
             throw e;
         }
@@ -123,11 +123,12 @@ public class MemberDAO {
 
     public static void insertMember(Member member) throws ClassNotFoundException {
         String insertStatement = "INSERT INTO T_MEMBERS VALUES (NULL,\n" +
-                "'" + member.getFirstName() + "', '" + member.getSurname() + "', '" + member.getFatherName() + "', " +
-                "'" + member.getBirthCity() + "', '" + member.getBirthday() + "', '" + member.getPesel() + "', " +
-                "'" + member.getCity() + "', '" + member.getHouseNumber() + "', '" + member.getIdCard() + "', " +
-                "'" + member.getPhoneNumber() + "', '" + member.getJoinDate() + "', '" + member.getIsJOT() + "', " +
-                "'" + member.getIsMember() + "', '" + member.getMemberFunction() + "', '" + member.getSex() + "'";
+                "'" + member.getFirstName() + "', '" + member.getSurname() + "', '" + member.getFatherName() + "', \n" +
+                "'" + member.getBirthCity() + "', '" + member.getBirthday() + "', '" + member.getPesel() + "', \n" +
+                "'" + member.getCity() + "', '" + member.getHouseNumber() + "', '" + member.getIdCard() + "', \n" +
+                "'" + member.getPhoneNumber() + "', '" + member.getJoinDate() + "', '" + member.getIsJOT() + "', \n" +
+                "'" + member.getIsMember() + "', '" + member.getMemberFunction() + "', '" + member.getSex() + "');";
+        System.out.println(insertStatement);
         try {
             DBUtil.dbExecuteUpdate(insertStatement);
         } catch (SQLException e) {
