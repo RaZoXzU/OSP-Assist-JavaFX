@@ -1,7 +1,8 @@
-package osp.DB;
+package osp.DB.DAO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import osp.DB.DBUtil;
 import osp.Models.Member;
 
 import java.sql.PreparedStatement;
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberDAO {
-    //Select Member
+    //Select Member by ID
     public static Member searchMember(String idMember) throws SQLException, ClassNotFoundException {
         String statement = "SELECT * FROM T_MEMBERS WHERE ID=" + idMember;
         //Execute
@@ -51,15 +52,11 @@ public class MemberDAO {
         return member;
     }
 
-    //*******************************
-    //SELECT Members
-    //*******************************
-
+    //select all members
     public static ObservableList<Member> searchMembers() throws SQLException, ClassNotFoundException {
         String selectStatement = "SELECT * FROM T_MEMBERS";
         try {
             ResultSet resultSetMembers = DBUtil.executeQuery(selectStatement);
-            //Send ResultSet to the getEmployeeList method and get employee object
             ObservableList<Member> membersList = getMembersList(resultSetMembers);
             return membersList;
         } catch (SQLException e) {
@@ -69,7 +66,7 @@ public class MemberDAO {
         }
     }
 
-    //Select * from employees operation
+    //return memberlist from result
     private static ObservableList<Member> getMembersList(ResultSet resultSetMembers) throws SQLException {
         ObservableList<Member> membersList = FXCollections.observableArrayList();
         while (resultSetMembers.next()) {
@@ -86,18 +83,16 @@ public class MemberDAO {
             member.setIdCard(resultSetMembers.getString("Dowod"));
             member.setPhoneNumber(resultSetMembers.getInt("Telefon"));
             member.setJoinDate(resultSetMembers.getString("DataWstapienia"));
-            member.setIsJOT(resultSetMembers.getBoolean("JOT"));
-            member.setIsMember(resultSetMembers.getBoolean("Czlonek"));
+            member.setIsJOT(Boolean.parseBoolean(resultSetMembers.getString("JOT")));
+            member.setIsMember(Boolean.parseBoolean(resultSetMembers.getString("Czlonek")));
             member.setMemberFunction(resultSetMembers.getInt("Funkcja"));
             member.setSex(resultSetMembers.getInt("Plec"));
-
             membersList.add(member);
         }
         return membersList;
     }
 
     //UPDATE member city
-
     public static void updateMemberCity(String memberID, String city) throws SQLException, ClassNotFoundException {
         String updateStatement = "UPDATE T_MEMBERS\n" +
                 " SET Miejscowosc = '" + city + "'\n" +
@@ -121,6 +116,7 @@ public class MemberDAO {
         }
     }
 
+    //insert member
     public static void insertMember(Member member) throws ClassNotFoundException {
         String insertStatement = "INSERT INTO T_MEMBERS VALUES (NULL,\n" +
                 "'" + member.getFirstName() + "', '" + member.getSurname() + "', '" + member.getFatherName() + "', \n" +

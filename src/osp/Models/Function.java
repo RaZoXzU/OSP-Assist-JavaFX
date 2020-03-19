@@ -6,8 +6,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Function {
-    private IntegerProperty id = new SimpleIntegerProperty();
-    private StringProperty name = new SimpleStringProperty();
+    private IntegerProperty id;
+    private StringProperty name;
+
+    public Function() {
+        this.id = new SimpleIntegerProperty();
+        this.name = new SimpleStringProperty();
+    }
 
     public Function(int id, String name) {
         setId(id);
@@ -39,7 +44,7 @@ public class Function {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name.getValue();
     }
 }

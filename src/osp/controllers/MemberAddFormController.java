@@ -1,12 +1,14 @@
 package osp.controllers;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import osp.DB.MemberDAO;
+import osp.DB.DAO.FunctionDAO;
+import osp.DB.DAO.MemberDAO;
 import osp.Models.Function;
 import osp.Models.Member;
+
+import java.sql.SQLException;
 
 public class MemberAddFormController {
 
@@ -63,42 +65,34 @@ public class MemberAddFormController {
         if (!dpJoinDate.getValue().equals(null)) member.setJoinDate(dpJoinDate.getValue().toString());
         member.setIsJOT(chckbJOT.isSelected());
         member.setIsMember(chckbMember.isSelected());
-        member.setMemberFunction(cbFunction.getSelectionModel().getSelectedIndex());
-        member.setSex(cbSex.getSelectionModel().getSelectedIndex());
+        Function func = (Function) cbFunction.getSelectionModel().getSelectedItem();
+        member.setMemberFunction(func.getId());
+        member.setSex(cbSex.getSelectionModel().getSelectedIndex()+1);
         MemberDAO.insertMember(member);
     }
 
     private void checkFieldsIsNotEmpty() {
-        bttnSaveMember.setDisable(!(tfName.getLength() > 2 && tfSurname.getLength() > 2 && tfPhone.getLength() > 2));
+        if (!(tfName.getLength() > 2 && tfSurname.getLength() > 2 && tfPhone.getLength() > 2)) {
+            bttnSaveMember.setDisable(true);
+            lblInfo.setText("Pola Imię, Nazwisko, Telefon muszą zostać wypełnione!!!");
+        } else {
+            bttnSaveMember.setDisable(false);
+            lblInfo.setText("");
+        }
     }
 
-    public void initialize() {
+    public void initialize() throws SQLException, ClassNotFoundException {
         loadDataToComboBox();
         chckbMember.setSelected(true);
-        //checkFieldsIsNotEmpty();
-        bttnSaveMember.setDisable(false);
+        tfName.textProperty().addListener(observable -> checkFieldsIsNotEmpty());
+        tfSurname.textProperty().addListener(observable -> checkFieldsIsNotEmpty());
+        tfPhone.textProperty().addListener(observable -> checkFieldsIsNotEmpty());
     }
 
-    private void loadDataToComboBox() {
-        final ObservableList<Function> functionObservableList = FXCollections.observableArrayList(
-                new Function(0, "Strażak"),
-                new Function(1, "Starszy Strażak"),
-                new Function(2, "Dowódca roty"),
-                new Function(3, "Pomocnik dowódcy sekcji"),
-                new Function(4, "Dowódca sekcji"),
-                new Function(5, "Pomocnik dowódcy plutonu"),
-                new Function(6, "Dowódca plutonu"),
-                new Function(7, "Członek komisji rewizyjnej"),
-                new Function(8, "Przewodniczący komisji rewizyjnej"),
-                new Function(9, "Członek zarządu"),
-                new Function(10, "Zastępca naczelnika"),
-                new Function(11, "Naczelnik"),
-                new Function(12, "Wiceprezes"),
-                new Function(13, "Prezes")
-        );
+    private void loadDataToComboBox() throws SQLException, ClassNotFoundException {
+        final ObservableList<Function> functionObservableList = FunctionDAO.getFunctionList();
         cbFunction.setItems(functionObservableList);
         cbFunction.getSelectionModel().select(0);
-
         cbSex.getItems().addAll(new String("Mężczyzna"), new String("Kobieta"));
         cbSex.getSelectionModel().select(0);
     }
