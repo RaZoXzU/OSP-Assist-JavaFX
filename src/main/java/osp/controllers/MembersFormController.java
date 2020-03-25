@@ -91,7 +91,7 @@ public class MembersFormController {
 
     @FXML
     private void onAddMemberClicked() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/memberAddForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/memberAddForm.fxml"));
         Scene scene;
         try {
             scene = new Scene(loader.load());
@@ -106,7 +106,7 @@ public class MembersFormController {
 
     @FXML
     private void onBackClicked() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/osp/fxml/menuForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menuForm.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();

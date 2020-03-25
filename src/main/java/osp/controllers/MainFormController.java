@@ -15,7 +15,7 @@ public class MainFormController {
 
     @FXML
     public void initialize() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/osp/fxml/menuForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menuForm.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
@@ -32,7 +32,7 @@ public class MainFormController {
     public void showTopUserBar() {
         Node topNode = null;
         try {
-            topNode = FXMLLoader.load(getClass().getResource("../fxml/topUserBar.fxml"));
+            topNode = FXMLLoader.load(getClass().getResource("/fxml/topUserBar.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -23,7 +23,7 @@ public class MenuFormController {
 
     @FXML
     public void onMembersClicked() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/osp/fxml/membersForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/membersForm.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
