@@ -69,6 +69,7 @@ public class MemberAddFormController {
         member.setMemberFunction(func.getId());
         member.setSex(cbSex.getSelectionModel().getSelectedIndex()+1);
         MemberDAO.insertMember(member);
+        bttnSaveMember.setDisable(true);
     }
 
     private void checkFieldsIsNotEmpty() {

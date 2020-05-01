@@ -41,6 +41,7 @@ public class DBUtil {
         }
     }
 
+    //DB Execute Update (For Select) Operation
     public static ResultSet executeQuery(String query) throws SQLException, ClassNotFoundException {
         Statement statement = null;
         ResultSet resultSet = null;

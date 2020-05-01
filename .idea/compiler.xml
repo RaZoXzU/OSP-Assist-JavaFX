@@ -16,11 +16,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FXChat" />
+        <module name="OSP-Assist-FXML" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="FXChat" target="1.8" />
+    <bytecodeTargetLevel target="8">
+      <module name="OSP-Assist-FXML" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
