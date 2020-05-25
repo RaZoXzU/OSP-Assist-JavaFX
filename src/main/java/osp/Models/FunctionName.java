@@ -1,0 +1,35 @@
+package osp.Models;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity(name = "Function_Names")
+public class FunctionName {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(unique = true)
+    private String name;
+
+    @OneToMany(mappedBy = "idFunctionName")
+    private List<MembersFunctions> membersFunctions;
+
+    public FunctionName() { }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return ("ID: " + id + "\nNazwa: " + name);
+    }
+}

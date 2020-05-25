@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import osp.DB.DAO.FunctionDAO;
 import osp.DB.DAO.MemberDAO;
 import osp.Models.Function;
-import osp.Models.Member;
+import osp.Models.MemberOld;
 
 import java.sql.SQLException;
 
@@ -51,24 +51,24 @@ public class MemberAddFormController {
 
     public void onSaveMemberClicked() throws ClassNotFoundException {
 
-        Member member = new Member();
-        if (tfName.getText() != "") member.setFirstName(tfName.getText());
-        if (tfSurname.getText() != "") member.setSurname(tfSurname.getText());
-        if (tfDadName.getText() != "") member.setFatherName(tfDadName.getText());
-        if (tfBirthCity.getText() != "") member.setBirthCity(tfBirthCity.getText());
-        if (!dpBirthDate.getValue().equals(null)) member.setBirthday(dpBirthDate.getValue().toString());
-        if (tfPESEL.getText() != "") member.setPesel(tfPESEL.getText());
-        if (tfCity.getText() != "") member.setCity(tfCity.getText());
-        if (tfHouseNumber.getText() != "") member.setHouseNumber(tfHouseNumber.getText());
-        if (tfDocumentNumber.getText() != "") member.setIdCard(tfDocumentNumber.getText());
-        if (tfPhone.getText() != "") member.setPhoneNumber(Integer.parseInt(tfPhone.getText()));
-        if (!dpJoinDate.getValue().equals(null)) member.setJoinDate(dpJoinDate.getValue().toString());
-        member.setIsJOT(chckbJOT.isSelected());
-        member.setIsMember(chckbMember.isSelected());
+        MemberOld memberOld = new MemberOld();
+        if (tfName.getText() != "") memberOld.setFirstName(tfName.getText());
+        if (tfSurname.getText() != "") memberOld.setSurname(tfSurname.getText());
+        if (tfDadName.getText() != "") memberOld.setFatherName(tfDadName.getText());
+        if (tfBirthCity.getText() != "") memberOld.setBirthCity(tfBirthCity.getText());
+        if (!dpBirthDate.getValue().equals(null)) memberOld.setBirthday(dpBirthDate.getValue().toString());
+        if (tfPESEL.getText() != "") memberOld.setPesel(tfPESEL.getText());
+        if (tfCity.getText() != "") memberOld.setCity(tfCity.getText());
+        if (tfHouseNumber.getText() != "") memberOld.setHouseNumber(tfHouseNumber.getText());
+        if (tfDocumentNumber.getText() != "") memberOld.setIdCard(tfDocumentNumber.getText());
+        if (tfPhone.getText() != "") memberOld.setPhoneNumber(Integer.parseInt(tfPhone.getText()));
+        if (!dpJoinDate.getValue().equals(null)) memberOld.setJoinDate(dpJoinDate.getValue().toString());
+        memberOld.setIsJOT(chckbJOT.isSelected());
+        memberOld.setIsMember(chckbMember.isSelected());
         Function func = (Function) cbFunction.getSelectionModel().getSelectedItem();
-        member.setMemberFunction(func.getId());
-        member.setSex(cbSex.getSelectionModel().getSelectedIndex()+1);
-        MemberDAO.insertMember(member);
+        memberOld.setMemberFunction(func.getId());
+        memberOld.setSex(cbSex.getSelectionModel().getSelectedIndex()+1);
+        MemberDAO.insertMember(memberOld);
         bttnSaveMember.setDisable(true);
     }
 

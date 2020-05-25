@@ -1,182 +1,161 @@
 package osp.Models;
 
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.List;
 
+@Entity(name = "Members")
 public class Member {
-    private SimpleIntegerProperty id, phoneNumber, memberFunction, sex;
-    private SimpleStringProperty firstName, surname, fatherName, birthCity, birthday,
-            city, idCard, joinDate, houseNumber, pesel;
-    private SimpleBooleanProperty isJOT, isMember;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
+    private String firstName;
+    private String lastName;
+    private String fatherName;
+    private String birthCity;
+    private LocalDateTime birthday;
+    @Column(unique = true)
+    private String pesel;
+    private String adress;
+    private String idCardNumber;
+    private Integer phoneNumber;
+    private LocalDateTime joinDate;
+    private Boolean isJOT;
+    private Boolean isMember;
+    private Boolean isMan;
 
-    public Member() {
-        this.id = new SimpleIntegerProperty();
-        this.firstName = new SimpleStringProperty();
-        this.surname = new SimpleStringProperty();
-        this.fatherName = new SimpleStringProperty();
-        this.birthCity = new SimpleStringProperty();
-        this.birthday = new SimpleStringProperty();
-        this.pesel = new SimpleStringProperty();
-        this.city = new SimpleStringProperty();
-        this.houseNumber = new SimpleStringProperty();
-        this.idCard = new SimpleStringProperty();
-        this.phoneNumber = new SimpleIntegerProperty();
-        this.joinDate = new SimpleStringProperty();
-        this.isJOT = new SimpleBooleanProperty();
-        this.isMember = new SimpleBooleanProperty();
-        this.memberFunction = new SimpleIntegerProperty();
-        this.sex = new SimpleIntegerProperty();
-    }
+    @OneToMany(mappedBy = "idMember")
+    private List<MembersFunctions>membersFunctions;
 
-    //for test only
-    public Member(String firstName, String surname, String city, Integer phoneNumber,
-                  String joinDate, Boolean isJOT, Boolean isMember, Integer memberFunction) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.surname = new SimpleStringProperty(surname);
-        this.city = new SimpleStringProperty(city);
-        this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
-        this.joinDate = new SimpleStringProperty(joinDate);
-        this.isJOT = new SimpleBooleanProperty(isJOT);
-        this.isMember = new SimpleBooleanProperty(isMember);
-        this.memberFunction = new SimpleIntegerProperty(memberFunction);
-    }
-
-    public Member(Integer id, String firstName, String surname, String fatherName,
-                  String birthCity, String birthday, String pesel,
-                  String city, String houseNumber, String idCard, Integer phoneNumber,
-                  String joinDate, Boolean isJOT, Boolean isMember, Integer memberFunction, Integer sex) {
-        this.id = new SimpleIntegerProperty(id);
-        this.firstName = new SimpleStringProperty(firstName);
-        this.surname = new SimpleStringProperty(surname);
-        this.fatherName = new SimpleStringProperty(fatherName);
-        this.birthCity = new SimpleStringProperty(birthCity);
-        this.birthday = new SimpleStringProperty(birthday);
-        this.pesel = new SimpleStringProperty(pesel);
-        this.city = new SimpleStringProperty(city);
-        this.houseNumber = new SimpleStringProperty(houseNumber);
-        this.idCard = new SimpleStringProperty(idCard);
-        this.phoneNumber = new SimpleIntegerProperty(phoneNumber);
-        this.joinDate = new SimpleStringProperty(joinDate);
-        this.isJOT = new SimpleBooleanProperty(isJOT);
-        this.isMember = new SimpleBooleanProperty(isMember);
-        this.memberFunction = new SimpleIntegerProperty(memberFunction);
-        this.sex = new SimpleIntegerProperty(sex);
-    }
+    public Member(){ }
 
     public Integer getId() {
-        return id.get();
+        return id;
     }
 
-    public void setId(Integer id) { this.id.set(id); }
-
-    public String getPesel() {
-        return pesel.get();
-    }
-
-    public void setPesel(String pesel) { this.pesel.set(pesel); }
-
-    public Integer getPhoneNumber() {
-        return phoneNumber.get();
-    }
-
-    public void setPhoneNumber(Integer phoneNumber) {
-        this.phoneNumber.set(phoneNumber);
-    }
-
-    public Boolean getIsJOT() {
-        return isJOT.get();
-    }
-
-    public void setIsJOT(Boolean isJOT) {
-        this.isJOT.set(isJOT);
-    }
-
-    public Boolean getIsMember() {
-        return isMember.get();
-    }
-
-    public void setIsMember(Boolean isMember) {
-        this.isMember.set(isMember);
-    }
-
-    public Integer getMemberFunction() {
-        return memberFunction.get();
-    }
-
-    public void setMemberFunction(Integer memberFunction) {
-        this.memberFunction.set(memberFunction);
-    }
-
-    public Integer getSex() {
-        return sex.get();
-    }
-
-    public void setSex(Integer sex) {
-        this.sex.set(sex);
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
-        return firstName.get();
+        return firstName;
     }
 
-    public void setFirstName(String firstName) { this.firstName.set(firstName); }
-
-    public String getSurname() {
-        return surname.get();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setSurname(String surname) {
-        this.surname.set(surname);
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFatherName() {
-        return fatherName.get();
+        return fatherName;
     }
 
     public void setFatherName(String fatherName) {
-        this.fatherName.set(fatherName);
+        this.fatherName = fatherName;
     }
 
     public String getBirthCity() {
-        return birthCity.get();
+        return birthCity;
     }
 
     public void setBirthCity(String birthCity) {
-        this.birthCity.set(birthCity);
+        this.birthCity = birthCity;
     }
 
-    public String getBirthday() {
-        return birthday.get();
+    public LocalDateTime getBirthday() {
+        return birthday;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday.set(birthday);
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
     }
 
-    public String getCity() {
-        return city.get();
+    public String getPesel() {
+        return pesel;
     }
 
-    public void setCity(String city) { this.city.set(city);}
-
-    public String getIdCard() {
-        return idCard.get();
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard.set(idCard);
+    public String getAdress() {
+        return adress;
     }
 
-    public String getJoinDate() {
-        return joinDate.get();
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
-    public void setJoinDate(String joinDate) { this.joinDate.set(joinDate); }
-
-    public String getHouseNumber() {
-        return houseNumber.get();
+    public String getIdCardNumber() {
+        return idCardNumber;
     }
 
-    public void setHouseNumber(String houseNumber) { this.houseNumber.set(houseNumber); }
+    public void setIdCardNumber(String idCardNumber) {
+        this.idCardNumber = idCardNumber;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public LocalDateTime getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(LocalDateTime joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    public Boolean getJOT() {
+        return isJOT;
+    }
+
+    public void setJOT(Boolean JOT) {
+        isJOT = JOT;
+    }
+
+    public Boolean getMember() {
+        return isMember;
+    }
+
+    public void setMember(Boolean member) {
+        isMember = member;
+    }
+
+    public Boolean getMan() {
+        return isMan;
+    }
+
+    public void setMan(Boolean man) {
+        isMan = man;
+    }
+
+    @Override
+    public String toString(){
+        return ("ID: "+id+
+                "\nImie: "+firstName+
+                "\nNazwisko: "+lastName+
+                "\nImieOjca: "+fatherName+
+                "\nMiejsceUrodzenia: "+ birthCity+
+                "\nDataUrodzenia: "+birthday+
+                "\nPESEL: "+pesel+
+                "\nAdres: "+adress+
+                "\nNumer dowodu: "+idCardNumber+
+                "\nTelefon: "+phoneNumber+
+                "\nDataWstapienia: "+joinDate+
+                "\nJOT: "+isJOT+
+                "\nCzlonek: "+isMember+
+                "\nPlec: "+isMan);
+    }
 }

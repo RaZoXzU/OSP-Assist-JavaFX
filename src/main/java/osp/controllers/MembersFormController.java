@@ -16,7 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import osp.DB.DAO.MemberDAO;
-import osp.Models.Member;
+import osp.Models.MemberOld;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -25,38 +25,38 @@ public class MembersFormController {
 
     MainFormController mainFormController;
     @FXML
-    private TableView<Member> tableViewMembers;
+    private TableView<MemberOld> tableViewMembers;
     @FXML
-    private TableColumn<Member, String> nameColumn;
+    private TableColumn<MemberOld, String> nameColumn;
     @FXML
-    private TableColumn<Member, String> cityColumn;
+    private TableColumn<MemberOld, String> cityColumn;
     @FXML
-    private TableColumn<Member, String> surnameColumn;
+    private TableColumn<MemberOld, String> surnameColumn;
     @FXML
-    private TableColumn<Member, Integer> functionColumn;
+    private TableColumn<MemberOld, Integer> functionColumn;
     @FXML
-    private TableColumn<Member, Void> actionColumn;
+    private TableColumn<MemberOld, Void> actionColumn;
     @FXML
-    private TableColumn<Member, Integer> phoneColumn;
+    private TableColumn<MemberOld, Integer> phoneColumn;
     @FXML
-    private TableColumn<Member, Boolean> memberColumn;
+    private TableColumn<MemberOld, Boolean> memberColumn;
     @FXML
-    private TableColumn<Member, String> joinDateColumn;
+    private TableColumn<MemberOld, String> joinDateColumn;
     @FXML
-    private TableColumn<Member, Boolean> jotColumn;
+    private TableColumn<MemberOld, Boolean> jotColumn;
     private Boolean options;
 
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
         options = false;
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("firstName"));
-        cityColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("city"));
-        surnameColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("surname"));
-        functionColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("memberFunction"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("phoneNumber"));
-        joinDateColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("joinDate"));
-        memberColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("isMember"));
-        jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("isJOT"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, String>("firstName"));
+        cityColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, String>("city"));
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, String>("surname"));
+        functionColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, Integer>("memberFunction"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, Integer>("phoneNumber"));
+        joinDateColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, String>("joinDate"));
+        memberColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, Boolean>("isMember"));
+        jotColumn.setCellValueFactory(new PropertyValueFactory<MemberOld, Boolean>("isJOT"));
 
         fillTableViewMembers();
         //sort table
@@ -65,7 +65,7 @@ public class MembersFormController {
 
     private void fillTableViewMembers() throws SQLException, ClassNotFoundException {
         try {
-            ObservableList<Member> membersData = MemberDAO.searchMembers();
+            ObservableList<MemberOld> membersData = MemberDAO.searchMembers();
             populateMembers(membersData);
         } catch (SQLException e) {
             System.out.println("Error occurred while getting employees information from DB.\n" + e);
@@ -74,9 +74,9 @@ public class MembersFormController {
         addEditMemberButtonTable();
     }
 
-    private void populateMembers(ObservableList<Member> member) {
-        ObservableList<Member> membersTblView = FXCollections.observableArrayList();
-        membersTblView.setAll(member);
+    private void populateMembers(ObservableList<MemberOld> memberOld) {
+        ObservableList<MemberOld> membersTblView = FXCollections.observableArrayList();
+        membersTblView.setAll(memberOld);
         tableViewMembers.setItems(membersTblView);
     }
 
@@ -123,15 +123,15 @@ public class MembersFormController {
     }
 
     private void addEditMemberButtonTable() {
-        Callback<TableColumn<Member, Void>, TableCell<Member, Void>> cellFactory = new Callback<TableColumn<Member, Void>, TableCell<Member, Void>>() {
+        Callback<TableColumn<MemberOld, Void>, TableCell<MemberOld, Void>> cellFactory = new Callback<TableColumn<MemberOld, Void>, TableCell<MemberOld, Void>>() {
             @Override
-            public TableCell<Member, Void> call(TableColumn<Member, Void> memberVoidTableColumn) {
-                TableCell<Member, Void> cell = new TableCell<Member, Void>() {
+            public TableCell<MemberOld, Void> call(TableColumn<MemberOld, Void> memberVoidTableColumn) {
+                TableCell<MemberOld, Void> cell = new TableCell<MemberOld, Void>() {
                     private Button button = new Button("Edytuj");
                     {
                         button.setOnAction((ActionEvent event) -> {
-                            Member member = getTableView().getItems().get(getIndex());
-                            System.out.println("Imie: " + member.getFirstName());
+                            MemberOld memberOld = getTableView().getItems().get(getIndex());
+                            System.out.println("Imie: " + memberOld.getFirstName());
                         });
                     }
                     @Override

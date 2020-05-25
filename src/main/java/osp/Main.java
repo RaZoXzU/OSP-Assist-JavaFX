@@ -10,6 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        HibernateTestIinit.startTest();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainForm.fxml"));
         primaryStage.setTitle("OSP Assist");
         primaryStage.setScene(new Scene(root));

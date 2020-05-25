@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import osp.DB.DBUtil;
 import osp.Models.Function;
-import osp.Models.Member;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
