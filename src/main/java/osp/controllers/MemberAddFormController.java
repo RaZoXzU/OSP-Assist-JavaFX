@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import osp.DB.DAO.FunctionDAO;
 import osp.DB.DAO.MemberDAO;
 import osp.Models.Function;
-import osp.Models.MemberOld;
+import osp.Models.Member;
 
 import java.sql.SQLException;
 
@@ -50,25 +50,21 @@ public class MemberAddFormController {
     Button bttnSaveMember;
 
     public void onSaveMemberClicked() throws ClassNotFoundException {
-
-        MemberOld memberOld = new MemberOld();
-        if (tfName.getText() != "") memberOld.setFirstName(tfName.getText());
-        if (tfSurname.getText() != "") memberOld.setSurname(tfSurname.getText());
-        if (tfDadName.getText() != "") memberOld.setFatherName(tfDadName.getText());
-        if (tfBirthCity.getText() != "") memberOld.setBirthCity(tfBirthCity.getText());
-        if (!dpBirthDate.getValue().equals(null)) memberOld.setBirthday(dpBirthDate.getValue().toString());
-        if (tfPESEL.getText() != "") memberOld.setPesel(tfPESEL.getText());
-        if (tfCity.getText() != "") memberOld.setCity(tfCity.getText());
-        if (tfHouseNumber.getText() != "") memberOld.setHouseNumber(tfHouseNumber.getText());
-        if (tfDocumentNumber.getText() != "") memberOld.setIdCard(tfDocumentNumber.getText());
-        if (tfPhone.getText() != "") memberOld.setPhoneNumber(Integer.parseInt(tfPhone.getText()));
-        if (!dpJoinDate.getValue().equals(null)) memberOld.setJoinDate(dpJoinDate.getValue().toString());
-        memberOld.setIsJOT(chckbJOT.isSelected());
-        memberOld.setIsMember(chckbMember.isSelected());
-        Function func = (Function) cbFunction.getSelectionModel().getSelectedItem();
-        memberOld.setMemberFunction(func.getId());
-        memberOld.setSex(cbSex.getSelectionModel().getSelectedIndex()+1);
-        MemberDAO.insertMember(memberOld);
+        Member member = new Member();
+        if (tfName.getText() != "") member.setFirstName(tfName.getText());
+        if (tfSurname.getText() != "") member.setLastName(tfSurname.getText());
+        if (tfDadName.getText() != "") member.setFatherName(tfDadName.getText());
+        if (tfBirthCity.getText() != "") member.setBirthCity(tfBirthCity.getText());
+        if (!dpBirthDate.getValue().equals(null)) member.setBirthday(dpBirthDate.getValue());
+        if (tfPESEL.getText() != "") member.setPesel(tfPESEL.getText());
+        if (tfCity.getText() != "") member.setAdress(tfCity.getText() +" "+tfHouseNumber.getText());
+        if (tfDocumentNumber.getText() != "") member.setIdCardNumber(tfDocumentNumber.getText());
+        if (tfPhone.getText() != "") member.setPhoneNumber(Integer.parseInt(tfPhone.getText()));
+        if (!dpJoinDate.getValue().equals(null)) member.setJoinDate(dpJoinDate.getValue());
+        member.setJOT(chckbJOT.isSelected());
+        member.setMember(chckbMember.isSelected());
+        member.setMan(cbSex.getSelectionModel().getSelectedIndex()==0);
+        MemberDAO.insertMember(member);
         bttnSaveMember.setDisable(true);
     }
 

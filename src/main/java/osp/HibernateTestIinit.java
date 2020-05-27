@@ -1,9 +1,14 @@
 package osp;
-import osp.Models.*;
+
+import osp.Models.Action;
+import osp.Models.FunctionName;
+import osp.Models.Member;
+import osp.Models.MembersFunctions;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class HibernateTestIinit {
     private static void insertTest() {
         LocalDateTime dateStart = LocalDateTime.of(2020, 5, 23, 9, 23);
         LocalDateTime dateStop = LocalDateTime.of(2020, 5, 23, 10, 23);
+        LocalDate date = LocalDate.of(2020, 5, 23);
         insertAction("1/2020", 1, "Pożar sadzy w kominie", "Janowo 15", "Uszkodzony wycior",dateStart,dateStop);
         insertAction("2/2020", 2, "Zerwany dach", "Strubiny 3","",dateStart,dateStop);
         insertAction("3/2020", 3, "Alarm fałszywy", "Wojszczyce 1", "",dateStart,dateStop);
@@ -44,28 +50,28 @@ public class HibernateTestIinit {
         insertFunctionName("Wiceprezes");
         insertFunctionName("Prezes");
 
-        insertMember("Janusz", "Kowalski","Jan","Warszawa" , dateStart,
+        insertMember("Janusz", "Kowalski","Jan","Warszawa" , date,
                 "12345678912","Marki 23/23","AXJ37432" , 123123123,
-                dateStart, false, true, true);
-        insertMember("Jan", "Wiśniowiecki","Mateusz","Gdańsk" , dateStart,
+                date, false, true, true);
+        insertMember("Jan", "Wiśniowiecki","Mateusz","Gdańsk" , date,
                 "45372819561","Nadmorska 3","AXJ98765" , 321654987,
-                dateStart, false, true, true);
-        insertMember("Paweł", "Jadczak","Mateusz","Kraków" , dateStart,
+                date, false, true, true);
+        insertMember("Paweł", "Jadczak","Mateusz","Kraków" , date,
                 "19537289341","Głuchołazy 15a","AXJ54321" , 123789345,
-                dateStart, false, true, true);
-        insertMember("Łukasz", "Starzewski","Romuald","Wiśniewo" , dateStart,
+                date, false, true, true);
+        insertMember("Łukasz", "Starzewski","Romuald","Wiśniewo" , date,
                 "92856735218","Radziejowice 18","AJX34132" , 567345456,
-                dateStart, false, true, true);
-        insertMember("Konstanty", "Radziwił","Artur","Warszawa" , dateStart,
+                date, false, true, true);
+        insertMember("Konstanty", "Radziwił","Artur","Warszawa" , date,
                 "92549114273","Średniowieczna 2","AXJ12345" , 123234345,
-                dateStart, false, true, true);
+               date, false, true, true);
 
 
 
     }
     public static void insertMember(String firstName, String lastName, String fatherName, String birthCity
-            , LocalDateTime birthday, String pesel , String adress, String idCardNumber, Integer phoneNumber
-            , LocalDateTime joinDate, Boolean isJOT, Boolean isMember, Boolean isMan){
+            , LocalDate birthday, String pesel , String adress, String idCardNumber, Integer phoneNumber
+            , LocalDate joinDate, Boolean isJOT, Boolean isMember, Boolean isMan){
         Member member = new Member();
         member.setFirstName(firstName);
         member.setLastName(lastName);

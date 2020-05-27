@@ -1,7 +1,7 @@
 package osp.Models;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity(name = "Members")
@@ -13,13 +13,13 @@ public class Member {
     private String lastName;
     private String fatherName;
     private String birthCity;
-    private LocalDateTime birthday;
+    private LocalDate birthday;
     @Column(unique = true)
     private String pesel;
     private String adress;
     private String idCardNumber;
     private Integer phoneNumber;
-    private LocalDateTime joinDate;
+    private LocalDate joinDate;
     private Boolean isJOT;
     private Boolean isMember;
     private Boolean isMan;
@@ -69,11 +69,11 @@ public class Member {
         this.birthCity = birthCity;
     }
 
-    public LocalDateTime getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDateTime birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -109,11 +109,11 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalDateTime getJoinDate() {
+    public LocalDate getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(LocalDateTime joinDate) {
+    public void setJoinDate(LocalDate joinDate) {
         this.joinDate = joinDate;
     }
 
