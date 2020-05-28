@@ -26,7 +26,7 @@ public class MemberDAO {
         return member;
     }
 
-    public static ObservableList<Member> searchMembers(){
+    public static ObservableList<Member> getMembersList(){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ospa");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();

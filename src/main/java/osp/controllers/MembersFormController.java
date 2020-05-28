@@ -54,8 +54,8 @@ public class MembersFormController {
         functionColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("memberFunction"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<Member, Integer>("phoneNumber"));
         joinDateColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("joinDate"));
-        memberColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("isMember"));
-        jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("isJOT"));
+        memberColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("registered"));
+        jotColumn.setCellValueFactory(new PropertyValueFactory<Member, Boolean>("outgoing"));
 
         fillTableViewMembers();
         //sort table
@@ -63,7 +63,7 @@ public class MembersFormController {
     }
 
     private void fillTableViewMembers() {
-        ObservableList<Member> membersData = MemberDAO.searchMembers();
+        ObservableList<Member> membersData = MemberDAO.getMembersList();
         populateMembers(membersData);
         addEditMemberButtonTable();
     }
@@ -127,6 +127,9 @@ public class MembersFormController {
                         button.setOnAction((ActionEvent event) -> {
                             Member member = getTableView().getItems().get(getIndex());
                             System.out.println("Imie: " + member.getFirstName());
+                            System.out.println("Nazwisko: " + member.getLastName());
+                            System.out.println("Czy jot: " + member.getOutgoing());
+                            System.out.println("Czy członek: " + member.getRegistered());
                         });
                     }
 

@@ -20,12 +20,11 @@ public class Member {
     private String idCardNumber;
     private Integer phoneNumber;
     private LocalDate joinDate;
-    private Boolean isJOT;
-    private Boolean isMember;
-    private Boolean isMan;
-
-    @OneToMany(mappedBy = "idMember")
-    private List<MembersFunctions>membersFunctions;
+    private Boolean outgoing;
+    private Boolean registered;
+    private Boolean manSex;
+    @ManyToMany(mappedBy = "firefighters")
+    private List<Action> actions;
 
     public Member(){ }
 
@@ -117,28 +116,28 @@ public class Member {
         this.joinDate = joinDate;
     }
 
-    public Boolean getJOT() {
-        return isJOT;
+    public Boolean getOutgoing() {
+        return outgoing;
     }
 
-    public void setJOT(Boolean JOT) {
-        isJOT = JOT;
+    public void setOutgoing(Boolean outgoing) {
+        this.outgoing = outgoing;
     }
 
-    public Boolean getMember() {
-        return isMember;
+    public Boolean getRegistered() {
+        return registered;
     }
 
-    public void setMember(Boolean member) {
-        isMember = member;
+    public void setRegistered(Boolean registered) {
+        this.registered = registered;
     }
 
-    public Boolean getMan() {
-        return isMan;
+    public Boolean getManSex() {
+        return manSex;
     }
 
-    public void setMan(Boolean man) {
-        isMan = man;
+    public void setManSex(Boolean manSex) {
+        this.manSex = manSex;
     }
 
     @Override
@@ -154,8 +153,8 @@ public class Member {
                 "\nNumer dowodu: "+idCardNumber+
                 "\nTelefon: "+phoneNumber+
                 "\nDataWstapienia: "+joinDate+
-                "\nJOT: "+isJOT+
-                "\nCzlonek: "+isMember+
-                "\nPlec: "+isMan);
+                "\nJOT: "+ outgoing +
+                "\nCzlonek: "+ registered +
+                "\nPlec: "+ manSex);
     }
 }

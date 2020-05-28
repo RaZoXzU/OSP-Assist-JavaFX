@@ -1,7 +1,6 @@
 package osp.Models;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "Function_Names")
 public class FunctionName {
@@ -10,9 +9,6 @@ public class FunctionName {
     private Integer id;
     @Column(unique = true)
     private String name;
-
-    @OneToMany(mappedBy = "idFunctionName")
-    private List<MembersFunctions> membersFunctions;
 
     public FunctionName() { }
 
@@ -30,6 +26,6 @@ public class FunctionName {
 
     @Override
     public String toString() {
-        return ("ID: " + id + "\nNazwa: " + name);
+        return name;
     }
 }

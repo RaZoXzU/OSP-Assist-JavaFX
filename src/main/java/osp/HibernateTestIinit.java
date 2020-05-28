@@ -3,19 +3,17 @@ package osp;
 import osp.Models.Action;
 import osp.Models.FunctionName;
 import osp.Models.Member;
-import osp.Models.MembersFunctions;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class HibernateTestIinit {
     public static void startTest() {
         System.out.println("Start testu Hibernate");
-        //insertTest();
+        insertTest();
         //connectFunctionWithMember(2);
     }
 
@@ -83,9 +81,9 @@ public class HibernateTestIinit {
         member.setIdCardNumber(idCardNumber);
         member.setPhoneNumber(phoneNumber);
         member.setJoinDate(joinDate);
-        member.setJOT(isJOT);
-        member.setMember(isMember);
-        member.setMan(isMan);
+        member.setOutgoing(isJOT);
+        member.setRegistered(isMember);
+        member.setManSex(isMan);
         insertObjectIntoDB(member);
 
     }
@@ -99,7 +97,6 @@ public class HibernateTestIinit {
         akcja.setCaption(caption);
         akcja.setDateStart(start);
         akcja.setDateStop(stop);
-
         insertObjectIntoDB(akcja);
     }
 
@@ -108,70 +105,6 @@ public class HibernateTestIinit {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(object);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
-    }
-
-    private static void connectFunctionWithMember(Integer id){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ospa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-
-        Member member = new Member();
-        FunctionName functionName = new FunctionName();
-        MembersFunctions membersFunctions = new MembersFunctions();
-        LocalDateTime dateStart = LocalDateTime.of(2020, 5, 23, 9, 23);
-
-        List<FunctionName> listFN = entityManager.createQuery("FROM Function_Names WHERE id="+id).getResultList();
-        for (int i=0; i<listFN.size();i++){
-            System.out.println(listFN.get(i));
-            functionName=listFN.get(i);
-        }
-        List<Member> listMember = entityManager.createQuery("FROM Members WHERE id="+id).getResultList();
-        for (int i=0; i<listMember.size();i++){
-            System.out.println(listMember.get(i));
-            member = listMember.get(i);
-        }
-
-        membersFunctions.setDateFunction(dateStart);
-        membersFunctions.setIdFunctionName(functionName);
-        membersFunctions.setIdMember(member);
-
-        entityManager.persist(membersFunctions);
-
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
-    }
-
-    private static void selectFunctionWithMember(Integer id){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ospa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-
-        Member member = new Member();
-        FunctionName functionName = new FunctionName();
-        MembersFunctions membersFunctions = new MembersFunctions();
-        LocalDateTime dateStart = LocalDateTime.of(2020, 5, 23, 9, 23);
-
-        List<FunctionName> listFN = entityManager.createQuery("FROM Function_Names WHERE id="+id).getResultList();
-        for (int i=0; i<listFN.size();i++){
-            System.out.println(listFN.get(i));
-            functionName=listFN.get(i);
-        }
-        List<Member> listMember = entityManager.createQuery("FROM Members WHERE id="+id).getResultList();
-        for (int i=0; i<listMember.size();i++){
-            System.out.println(listMember.get(i));
-            member = listMember.get(i);
-        }
-
-        membersFunctions.setDateFunction(dateStart);
-        membersFunctions.setIdFunctionName(functionName);
-        membersFunctions.setIdMember(member);
-
-        entityManager.persist(membersFunctions);
-
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();

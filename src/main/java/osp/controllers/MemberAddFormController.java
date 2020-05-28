@@ -3,9 +3,9 @@ package osp.controllers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import osp.DB.DAO.FunctionDAO;
+import osp.DB.DAO.FunctionNameDAO;
 import osp.DB.DAO.MemberDAO;
-import osp.Models.Function;
+import osp.Models.FunctionName;
 import osp.Models.Member;
 
 import java.sql.SQLException;
@@ -61,9 +61,9 @@ public class MemberAddFormController {
         if (tfDocumentNumber.getText() != "") member.setIdCardNumber(tfDocumentNumber.getText());
         if (tfPhone.getText() != "") member.setPhoneNumber(Integer.parseInt(tfPhone.getText()));
         if (!dpJoinDate.getValue().equals(null)) member.setJoinDate(dpJoinDate.getValue());
-        member.setJOT(chckbJOT.isSelected());
-        member.setMember(chckbMember.isSelected());
-        member.setMan(cbSex.getSelectionModel().getSelectedIndex()==0);
+        member.setOutgoing(chckbJOT.isSelected());
+        member.setRegistered(chckbMember.isSelected());
+        member.setManSex(cbSex.getSelectionModel().getSelectedIndex()==0);
         MemberDAO.insertMember(member);
         bttnSaveMember.setDisable(true);
     }
@@ -87,7 +87,7 @@ public class MemberAddFormController {
     }
 
     private void loadDataToComboBox() throws SQLException, ClassNotFoundException {
-        final ObservableList<Function> functionObservableList = FunctionDAO.getFunctionList();
+        final ObservableList<FunctionName> functionObservableList = FunctionNameDAO.getFunctionList();
         cbFunction.setItems(functionObservableList);
         cbFunction.getSelectionModel().select(0);
         cbSex.getItems().addAll(new String("Mężczyzna"), new String("Kobieta"));

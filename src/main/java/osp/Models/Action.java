@@ -1,10 +1,8 @@
 package osp.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "Actions")
 public class Action {
@@ -18,6 +16,8 @@ public class Action {
     private String title;
     private String address;
     private String caption;
+    @ManyToMany
+    private List<Member> firefighters;
 
     public Action() {
     }
@@ -84,6 +84,14 @@ public class Action {
 
     public void setCaption(String caption) {
         this.caption = caption;
+    }
+
+    public List<Member> getFirefighters() {
+        return firefighters;
+    }
+
+    public void setFirefighters(List<Member> firefighters) {
+        this.firefighters = firefighters;
     }
 
     @Override
